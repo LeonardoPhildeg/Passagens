@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import modelos.ClientesFacade;
+import org.primefaces.component.inputtext.InputText;
 
 /**
  *
@@ -25,6 +26,7 @@ public class ClienteControle implements Serializable {
     @EJB
     private ClientesFacade clientesFacade;
     private Clientes cliente= new Clientes();
+    
 
     public Clientes getCliente() {
         return cliente;
@@ -39,6 +41,7 @@ public class ClienteControle implements Serializable {
     }
     
     public List <Clientes> getListaClientes(){
+        
         return this.clientesFacade.findAll();
         
     }
@@ -52,8 +55,16 @@ public class ClienteControle implements Serializable {
         cliente.setUf(this.cliente.getUf());
         cliente.setTelefone(this.cliente.getTelefone());
         cliente.setEmail(this.cliente.getEmail());
+        cliente.setSenha(this.cliente.getSenha());
         this.clientesFacade.create(cliente);
-       
+        
+
         return "index";
     }
+    
+    public void delete(Clientes cliente){
+        this.clientesFacade.remove(cliente);
+    }
+        
+    
 }

@@ -33,7 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Clientes.findByCidade", query = "SELECT c FROM Clientes c WHERE c.cidade = :cidade")
     , @NamedQuery(name = "Clientes.findByUf", query = "SELECT c FROM Clientes c WHERE c.uf = :uf")
     , @NamedQuery(name = "Clientes.findByTelefone", query = "SELECT c FROM Clientes c WHERE c.telefone = :telefone")
-    , @NamedQuery(name = "Clientes.findByEmail", query = "SELECT c FROM Clientes c WHERE c.email = :email")})
+    , @NamedQuery(name = "Clientes.findByEmail", query = "SELECT c FROM Clientes c WHERE c.email = :email")
+    , @NamedQuery(name = "Clientes.findBySenha", query = "SELECT c FROM Clientes c WHERE c.senha = :senha")
+    , @NamedQuery(name = "Clientes.login", query = "SELECT c FROM Clientes c WHERE c.email = :email AND c.senha = :senha")})
 public class Clientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,6 +63,8 @@ public class Clientes implements Serializable {
     @Size(max = 40)
     @Column(name = "EMAIL")
     private String email;
+    @Column(name = "SENHA")
+    private String senha;
 
     public Clientes() {
     }
@@ -123,6 +127,14 @@ public class Clientes implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getSenha(){
+        return senha;
+    }
+    
+    public void setSenha(String senha){
+        this.senha = senha;
     }
 
     @Override

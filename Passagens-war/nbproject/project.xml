@@ -34,6 +34,8 @@
         </references>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>Facelet</word>
+            <word>Passagens</word>
+            <word>Reserva</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

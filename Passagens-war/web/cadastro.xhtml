@@ -16,7 +16,7 @@
                 <h:panelGrid columns="2">
                     
                     <p:outputLabel value="Nome:" for="nome" />
-                    <p:inputText id="nome" value="#{clienteControle.cliente.nome}" title="Nome" />
+                    <p:inputText  id="nome" value="#{clienteControle.cliente.nome}" title="Nome"  />
                     <p:outputLabel value="Endereco:" for="endereco" />
                     <p:inputText id="endereco" value="#{clienteControle.cliente.endereco}" title="Endereco" />
                     <p:outputLabel value="Cidade:" for="cidade" />
@@ -24,9 +24,11 @@
                     <p:outputLabel value="Uf:" for="uf" />
                     <p:inputText id="uf" value="#{clienteControle.cliente.uf}" title="Uf" />
                     <p:outputLabel value="Telefone:" for="telefone" />
-                    <p:inputText id="telefone" value="#{clienteControle.cliente.telefone}" title="Telefone" />
+                    <p:inputMask id="telefone" value="#{clienteControle.cliente.telefone}" title="Telefone" mask="(99)9999-9999"/>
                     <p:outputLabel value="Email:" for="email" />
                     <p:inputText id="email" value="#{clienteControle.cliente.email}" title="Email" />
+                    <p:outputLabel value="Senha:" for="senha" />
+                    <p:inputText id="senha" value="#{clienteControle.cliente.senha}" title="Senha" />
                     <br/>
                     <p:commandButton value="Cadastrar" action="#{clienteControle.insert()}"></p:commandButton>
                 </h:panelGrid>
