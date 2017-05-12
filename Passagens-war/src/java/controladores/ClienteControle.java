@@ -41,10 +41,10 @@ public class ClienteControle implements Serializable {
     }
     
     public List <Clientes> getListaClientes(){
-        
         return this.clientesFacade.findAll();
-        
     }
+        
+        
     
     
     public String insert(){

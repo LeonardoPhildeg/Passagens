@@ -33,7 +33,12 @@
             </reference>
         </references>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Assento</word>
+            <word>Destino</word>
             <word>Facelet</word>
+            <word>Horario</word>
+            <word>Horário</word>
+            <word>Origem</word>
             <word>Passagens</word>
             <word>Reserva</word>
         </spellchecker-wordlist>
