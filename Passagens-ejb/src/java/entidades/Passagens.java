@@ -39,7 +39,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Passagens.findByCidadeDestino", query = "SELECT p FROM Passagens p WHERE p.cidadeDestino = :cidadeDestino")
     , @NamedQuery(name = "Passagens.findByValor", query = "SELECT p FROM Passagens p WHERE p.valor = :valor")
     , @NamedQuery(name = "Passagens.findByAssento", query = "SELECT p FROM Passagens p WHERE p.assento = :assento")
-    , @NamedQuery(name = "Passagens.findByDisponibilidadade", query = "SELECT p FROM Passagens p WHERE p.disponibilidadade = :disponibilidadade")})
+    , @NamedQuery(name = "Passagens.findByDisponibilidadade", query = "SELECT p FROM Passagens p WHERE p.disponibilidadade = :disponibilidadade")
+    , @NamedQuery(name = "Passagens.findByDisponibilidadadeTrue", query = "SELECT p FROM Passagens p WHERE p.disponibilidadade = 1")
+    , @NamedQuery(name = "Passagens.findPassagensByCliente", query = "SELECT passagem FROM Passagens passagem JOIN passagem.fkidCliente clientes WHERE clientes.idCliente = :idCliente")})
+    
 public class Passagens implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,7 +72,7 @@ public class Passagens implements Serializable {
     @JoinColumn(name = "FKID_CLIENTE", referencedColumnName = "ID_CLIENTE")
     @ManyToOne
     private Clientes fkidCliente;
-
+    
     public Clientes getFkidCliente() {
         return fkidCliente;
     }

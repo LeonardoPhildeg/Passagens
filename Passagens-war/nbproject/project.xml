@@ -42,9 +42,11 @@
             <word>Facelet</word>
             <word>Horario</word>
             <word>Horário</word>
+            <word>Minhas</word>
             <word>Origem</word>
             <word>Passagens</word>
             <word>Reserva</word>
+            <word>Reservas</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
