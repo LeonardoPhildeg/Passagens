@@ -17,15 +17,15 @@
                     
                     <p:outputLabel value="Nome:" for="nome" />
                     <p:inputText  id="nome" value="#{clienteControle.cliente.nome}" title="Nome"  />
-                    <p:outputLabel value="Endereco:" for="endereco" />
+                    <p:outputLabel value="Endereço:" for="endereco" />
                     <p:inputText id="endereco" value="#{clienteControle.cliente.endereco}" title="Endereco" />
                     <p:outputLabel value="Cidade:" for="cidade" />
                     <p:inputText id="cidade" value="#{clienteControle.cliente.cidade}" title="Cidade" />
-                    <p:outputLabel value="Uf:" for="uf" />
-                    <p:inputText id="uf" value="#{clienteControle.cliente.uf}" title="Uf" />
+                    <p:outputLabel value="UF:" for="uf" />
+                    <p:inputText id="uf" value="#{clienteControle.cliente.uf}" title="Uf" maxlength="2" />
                     <p:outputLabel value="Telefone:" for="telefone" />
                     <p:inputMask id="telefone" value="#{clienteControle.cliente.telefone}" title="Telefone" mask="(99)9999-9999"/>
-                    <p:outputLabel value="Email:" for="email" />
+                    <p:outputLabel value="E-mail:" for="email" />
                     <p:inputText id="email" value="#{clienteControle.cliente.email}" title="Email" />
                     <p:outputLabel value="Senha:" for="senha" />
                     <p:inputText id="senha" value="#{clienteControle.cliente.senha}" title="Senha" />

@@ -5,13 +5,16 @@
  */
 package controladores;
 
+import entidades.Clientes;
 import entidades.Passagens;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import modelos.PassagensFacade;
+
 
 /**
  *
@@ -25,6 +28,8 @@ public class PassagemControle implements Serializable {
     @EJB
     private PassagensFacade passagemFacade;
     private Passagens passagem = new Passagens();
+    
+    private LoginControle loginControle = new LoginControle();
     
     public PassagemControle() {
     }
@@ -41,7 +46,18 @@ public class PassagemControle implements Serializable {
         return this.passagemFacade.findAll();
     }
     
-    public void delete(Passagens passagem){
-        this.passagemFacade.remove(passagem);
+    public void getPassagensDisponiveis(Passagens passagem) {
+        System.out.println("ENTROU");
+        passagemFacade.remove(passagem);
     }
+            
+    public void reservar(Passagens passagem){
+        passagemFacade.reservarPassagemParaCliente(passagem, this.loginControle.getUserBO());
+    }
+        
+    
+    public void cancelarReserva(Passagens passagem){
+        passagemFacade.cancelarReservaDoCliente(passagem, this.loginControle.getUserBO());
+    }
+        
 }

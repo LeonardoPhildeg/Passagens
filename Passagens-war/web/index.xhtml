@@ -17,7 +17,7 @@
                      <p:outputLabel value="Senha:" for="senha" />
                      <p:inputText id="senha" value="#{loginControle.senha}" title="Senha" required="true" requiredMessage="É necessário informar a senha de cadastro." />
                    
-                     <h:commandButton value="Entrar" action="#{loginControle.fazerLogin()}"> </h:commandButton>
+                     <h:commandButton value="Entrar" action="#{loginControle.logar()}"> </h:commandButton>
                     <br/>
                 </p:panelGrid>
                 <h:link value="Não possui cadastro? Cadastre-se aqui!" outcome="cadastro" style="position: absolute; top: 380px; left: 515px" ></h:link>

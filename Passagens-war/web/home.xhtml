@@ -12,7 +12,7 @@
         <h:form>
             <p:menubar>
                 <p:menuitem value="Minhas Reservas" icon="ui-icon-search"></p:menuitem>
-                <p:menuitem value="Logout" url="http://localhost:8080/Passagens-war/" icon="ui-icon-close" />
+                <p:menuitem value="Logout" action="#{loginControle.fazerLogout()}" icon="ui-icon-close" />
                 
             </p:menubar>
             <br/>
@@ -43,7 +43,7 @@
                 </p:column>
                 
                 <p:column headerText="Reserva">
-                    <p:commandButton value="Reservar"></p:commandButton>
+                    <p:commandButton value="Reservar" action="#{passagemControle.reservar(passagem)}"></p:commandButton>
                 </p:column>
                     
                 
