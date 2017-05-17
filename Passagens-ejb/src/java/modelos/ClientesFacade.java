@@ -34,7 +34,7 @@ public class ClientesFacade extends AbstractFacade<Clientes> {
     }
     
     
-    public boolean loginControl(String email, String senha){
+    /*public boolean loginControl(String email, String senha){
         try{
         Clientes cliente = em.createNamedQuery("Clientes.login", Clientes.class).setParameter("email",email).setParameter("senha", senha).getSingleResult();
         if(cliente != null){
@@ -44,7 +44,14 @@ public class ClientesFacade extends AbstractFacade<Clientes> {
         }catch(Exception e){
             return false;
         }
-    }
+    }*/
     
+    public Clientes verificaUsuario(String email, String senha){
+       
+        Clientes cliente = em.createNamedQuery("Clientes.login", Clientes.class).setParameter("email",email).setParameter("senha", senha).getSingleResult();
+        
+        return cliente;
+
+    }
     
 }

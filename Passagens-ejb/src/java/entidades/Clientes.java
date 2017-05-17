@@ -41,8 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Clientes.login", query = "SELECT c FROM Clientes c WHERE c.email = :email AND c.senha = :senha")})
 public class Clientes implements Serializable {
 
-    @OneToMany(mappedBy = "fkidCliente")
-    private List<Reservas> reservasList;
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -168,13 +167,8 @@ public class Clientes implements Serializable {
         return "entidades.Clientes[ idCliente=" + idCliente + " ]";
     }
 
-    @XmlTransient
-    public List<Reservas> getReservasList() {
-        return reservasList;
-    }
 
-    public void setReservasList(List<Reservas> reservasList) {
-        this.reservasList = reservasList;
-    }
+    
+    
     
 }

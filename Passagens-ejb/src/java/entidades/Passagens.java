@@ -66,10 +66,18 @@ public class Passagens implements Serializable {
     private Integer assento;
     @Column(name = "DISPONIBILIDADADE")
     private Integer disponibilidadade;
-    @JoinColumn(name = "FKID_RESERVA", referencedColumnName = "ID_RESERVA")
+    @JoinColumn(name = "FKID_CLIENTE", referencedColumnName = "ID_CLIENTE")
     @ManyToOne
-    private Reservas fkidReserva;
+    private Clientes fkidCliente;
 
+    public Clientes getFkidCliente() {
+        return fkidCliente;
+    }
+
+    public void setFkidCliente(Clientes fkidCliente) {
+        this.fkidCliente = fkidCliente;
+    }    
+    
     public Passagens() {
     }
 
@@ -139,14 +147,6 @@ public class Passagens implements Serializable {
 
     public void setDisponibilidadade(Integer disponibilidadade) {
         this.disponibilidadade = disponibilidadade;
-    }
-
-    public Reservas getFkidReserva() {
-        return fkidReserva;
-    }
-
-    public void setFkidReserva(Reservas fkidReserva) {
-        this.fkidReserva = fkidReserva;
     }
 
     @Override

@@ -5,7 +5,10 @@
  */
 package modelos;
 
+import entidades.Clientes;
 import entidades.Passagens;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +32,26 @@ public class PassagensFacade extends AbstractFacade<Passagens> {
         super(Passagens.class);
     }
     
+    
+    
+    public List <Passagens> getListaPassagensDisponiveis(){
+        return new ArrayList<>();
+//        em.
+    }
+    
+    public void reservarPassagemParaCliente(Passagens passagem, Clientes cliente) {
+        
+        passagem.setFkidCliente(cliente);
+        System.out.println("ENTROU AQUI");
+        // Definir na passagem existe que ela está reservada
+        passagem.setDisponibilidadade(0);
+        this.em.merge(passagem);
+        
+    }
+    
+    public void cancelarReservaDoCliente(Passagens passagem, Clientes cliente){
+        passagem.setFkidCliente(null);
+        passagem.setDisponibilidadade(1);
+        this.em.merge(passagem);
+    }
 }
