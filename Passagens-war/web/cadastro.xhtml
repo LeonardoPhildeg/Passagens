@@ -5,32 +5,36 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Reserva de Passagens</title>
     </h:head>
     <h:body>
         <f:view>
 
 
-            <h:form>
-                <h1><h:outputText value="Novo Cadastro"/></h1>
-                <h:panelGrid columns="2">
+            <h:form id="form">
+                <h1 align="center">Novo Cadastro</h1>
+                <h:panelGrid id="panel" columns="2" style="position: absolute; top: 100px; left: 515px">
                     
                     <p:outputLabel value="Nome:" for="nome" />
-                    <p:inputText  id="nome" value="#{clienteControle.cliente.nome}" title="Nome"  />
+                    <p:inputText  id="nome" value="#{clienteControle.cliente.nome}" title="Nome" required="true"/>
                     <p:outputLabel value="Endereço:" for="endereco" />
-                    <p:inputText id="endereco" value="#{clienteControle.cliente.endereco}" title="Endereco" />
+                    <p:inputText id="endereco" value="#{clienteControle.cliente.endereco}" title="Endereco"  required="true"/>
                     <p:outputLabel value="Cidade:" for="cidade" />
-                    <p:inputText id="cidade" value="#{clienteControle.cliente.cidade}" title="Cidade" />
+                    <p:inputText id="cidade" value="#{clienteControle.cliente.cidade}" title="Cidade" required="true" />
                     <p:outputLabel value="UF:" for="uf" />
-                    <p:inputText id="uf" value="#{clienteControle.cliente.uf}" title="Uf" maxlength="2" />
+                    <p:inputText id="uf" value="#{clienteControle.cliente.uf}" title="Uf" maxlength="2" required="true" />
                     <p:outputLabel value="Telefone:" for="telefone" />
-                    <p:inputMask id="telefone" value="#{clienteControle.cliente.telefone}" title="Telefone" mask="(99)9999-9999"/>
+                    <p:inputMask id="telefone" value="#{clienteControle.cliente.telefone}" title="Telefone" mask="(99)9999-9999" required="true"/>
                     <p:outputLabel value="E-mail:" for="email" />
-                    <p:inputText id="email" value="#{clienteControle.cliente.email}" title="Email" />
+                    <p:inputText id="email" value="#{clienteControle.cliente.email}" title="Email"  required="true"/>
                     <p:outputLabel value="Senha:" for="senha" />
-                    <p:inputText id="senha" value="#{clienteControle.cliente.senha}" title="Senha" />
-                    <br/>
-                    <p:commandButton value="Cadastrar" action="#{clienteControle.insert()}"></p:commandButton>
+                    <p:password id="senha" value="#{clienteControle.cliente.senha}" label="Senha" required="true" />
+                    
+                    <h:link value="VOLTAR" outcome="index"></h:link>
+                    
+                    
+                    <p:commandButton value="Cadastrar" action="#{clienteControle.insert()}" update="panel" actionListener="#{clienteControle.confirmaCadastro}" ></p:commandButton>
+                    
                 </h:panelGrid>
             </h:form>
         </f:view>

@@ -34,7 +34,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Passagens.findAll", query = "SELECT p FROM Passagens p")
     , @NamedQuery(name = "Passagens.findByIdPassagem", query = "SELECT p FROM Passagens p WHERE p.idPassagem = :idPassagem")
     , @NamedQuery(name = "Passagens.findByData", query = "SELECT p FROM Passagens p WHERE p.data = :data")
-    , @NamedQuery(name = "Passagens.findByHorario", query = "SELECT p FROM Passagens p WHERE p.horario = :horario")
     , @NamedQuery(name = "Passagens.findByCidadeOrigem", query = "SELECT p FROM Passagens p WHERE p.cidadeOrigem = :cidadeOrigem")
     , @NamedQuery(name = "Passagens.findByCidadeDestino", query = "SELECT p FROM Passagens p WHERE p.cidadeDestino = :cidadeDestino")
     , @NamedQuery(name = "Passagens.findByValor", query = "SELECT p FROM Passagens p WHERE p.valor = :valor")
@@ -54,9 +53,6 @@ public class Passagens implements Serializable {
     @Column(name = "DATA")
     @Temporal(TemporalType.DATE)
     private Date data;
-    @Column(name = "HORARIO")
-    @Temporal(TemporalType.TIME)
-    private Date horario;
     @Size(max = 30)
     @Column(name = "CIDADE_ORIGEM")
     private String cidadeOrigem;
@@ -64,7 +60,7 @@ public class Passagens implements Serializable {
     @Column(name = "CIDADE_DESTINO")
     private String cidadeDestino;
     @Column(name = "VALOR")
-    private Integer valor;
+    private String valor;
     @Column(name = "ASSENTO")
     private Integer assento;
     @Column(name = "DISPONIBILIDADADE")
@@ -104,13 +100,8 @@ public class Passagens implements Serializable {
         this.data = data;
     }
 
-    public Date getHorario() {
-        return horario;
-    }
 
-    public void setHorario(Date horario) {
-        this.horario = horario;
-    }
+    
 
     public String getCidadeOrigem() {
         return cidadeOrigem;
@@ -128,11 +119,11 @@ public class Passagens implements Serializable {
         this.cidadeDestino = cidadeDestino;
     }
 
-    public Integer getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

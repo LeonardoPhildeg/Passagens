@@ -54,15 +54,6 @@ public class LoginControle implements Serializable {
         this.senha = senha;
     }
     
-    /*public String fazerLogin(){
-        if(clientesFacade.loginControl(login, senha)){
-        return "home.xhtml?faces-redirect=true";
-        }
-        RequestContext.getCurrentInstance().update("growl");
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário e/ou Senha inválido!"));
-        return"";
-    }*/
     
     public String logar(){
         try{
@@ -78,9 +69,11 @@ public class LoginControle implements Serializable {
         RequestContext.getCurrentInstance().update("growl");
         FacesContext context = FacesContext.getCurrentInstance();
        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário e/ou Senha inválido!"));
-        
-        return "";
+        }finally{
+            zerarCampos();
         }
+        
+       return "";
     }        
 
     public String fazerLogout(){
@@ -98,5 +91,15 @@ public class LoginControle implements Serializable {
     public void setUserBO(Clientes cliente){
         this.userBO = cliente;
     }
+    
+    public void zerarCampos(){
+        setLogin(null);
+        setSenha(null);
+    }
+    
+
+    
+    
+    
 }       
     

@@ -17,6 +17,10 @@
                     <file>${file.reference.log4j-1.2.17.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.redmond-1.0.10.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
@@ -38,15 +42,20 @@
         </references>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>Assento</word>
+            <word>Cadastro</word>
+            <word>Cervejeiro</word>
             <word>Destino</word>
             <word>Facelet</word>
+            <word>Gaiteiro</word>
             <word>Horario</word>
             <word>Horário</word>
             <word>Minhas</word>
+            <word>Novo</word>
             <word>Origem</word>
             <word>Passagens</word>
             <word>Reserva</word>
             <word>Reservas</word>
+            <word>Viagens</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

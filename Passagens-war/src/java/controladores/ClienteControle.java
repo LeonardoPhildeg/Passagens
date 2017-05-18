@@ -11,6 +11,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import modelos.ClientesFacade;
 import org.primefaces.component.inputtext.InputText;
 
@@ -44,10 +46,11 @@ public class ClienteControle implements Serializable {
         return this.clientesFacade.findAll();
     }
         
-        
+    
     
     
     public String insert(){
+        try{
         Clientes cliente = new Clientes();
         cliente.setNome(this.cliente.getNome());
         cliente.setEndereco(this.cliente.getEndereco());
@@ -57,13 +60,30 @@ public class ClienteControle implements Serializable {
         cliente.setEmail(this.cliente.getEmail());
         cliente.setSenha(this.cliente.getSenha());
         this.clientesFacade.create(cliente);
-        
+        }catch(Exception e){
+            
+        }finally{
+            zerarCampos();
+        }
 
         return "index";
     }
     
     public void delete(Clientes cliente){
         this.clientesFacade.remove(cliente);
+    }
+    
+    public void confirmaCadastro(){
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastro realizado com sucesso!"));
+    }
+    
+    public void zerarCampos(){
+        cliente.setNome(null);
+        cliente.setEndereco(null);
+        cliente.setCidade(null);
+        cliente.setUf(null);
+        cliente.setTelefone(null);
+        cliente.setEmail(null);
     }
         
     
