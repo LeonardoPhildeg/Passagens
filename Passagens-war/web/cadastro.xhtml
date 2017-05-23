@@ -13,7 +13,7 @@
 
             <h:form id="form">
                 <h1 align="center">Novo Cadastro</h1>
-                <h:panelGrid id="panel" columns="2" style="position: absolute; top: 100px; left: 515px">
+                <p:panelGrid id="panel" columns="2" style="position: absolute; top: 100px; left: 515px">
                     
                     <p:outputLabel value="Nome:" for="nome" />
                     <p:inputText  id="nome" value="#{clienteControle.cliente.nome}" title="Nome" required="true"/>
@@ -30,12 +30,12 @@
                     <p:outputLabel value="Senha:" for="senha" />
                     <p:password id="senha" value="#{clienteControle.cliente.senha}" label="Senha" required="true" />
                     
-                    <h:link value="VOLTAR" outcome="index"></h:link>
+                    <p:link value="VOLTAR" style="text-decoration:none;color:blue ;font-style:italic; text-decoration:underline;" outcome="index"></p:link>
                     
                     
                     <p:commandButton value="Cadastrar" action="#{clienteControle.insert()}" update="panel" actionListener="#{clienteControle.confirmaCadastro}" ></p:commandButton>
                     
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>
         </f:view>
 

@@ -40,6 +40,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Passagens.findByAssento", query = "SELECT p FROM Passagens p WHERE p.assento = :assento")
     , @NamedQuery(name = "Passagens.findByDisponibilidadade", query = "SELECT p FROM Passagens p WHERE p.disponibilidadade = :disponibilidadade")
     , @NamedQuery(name = "Passagens.findByDisponibilidadadeTrue", query = "SELECT p FROM Passagens p WHERE p.disponibilidadade = 1")
+    , @NamedQuery(name = "Passagens.findByHorario", query = "SELECT p FROM Passagens p WHERE p.horario = :horario")
     , @NamedQuery(name = "Passagens.findPassagensByCliente", query = "SELECT passagem FROM Passagens passagem JOIN passagem.fkidCliente clientes WHERE clientes.idCliente = :idCliente")})
     
 public class Passagens implements Serializable {
@@ -65,10 +66,21 @@ public class Passagens implements Serializable {
     private Integer assento;
     @Column(name = "DISPONIBILIDADADE")
     private Integer disponibilidadade;
+    @Column(name = "HORARIO")
+    private String horario;
     @JoinColumn(name = "FKID_CLIENTE", referencedColumnName = "ID_CLIENTE")
     @ManyToOne
     private Clientes fkidCliente;
-    
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+   
     public Clientes getFkidCliente() {
         return fkidCliente;
     }

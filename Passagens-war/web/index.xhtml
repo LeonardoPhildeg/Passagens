@@ -16,14 +16,15 @@
                     <p:inputText id="login" value="#{loginControle.login}" title="Login" required="true" requiredMessage="É necessário informar o e-mail de cadastro." />
                      <p:outputLabel value="Senha:" for="senha" />
                      <p:password id="senha" value="#{loginControle.senha}" label="Senha" required="true" requiredMessage="É necessário informar a senha de cadastro." />
-                   
-                     <h:commandButton value="Entrar" action="#{loginControle.logar()}"> </h:commandButton>
+                     
+                     <p:commandButton value="Entrar" action="#{loginControle.logar()}" update="growl"> </p:commandButton>
                     <br/>
                 </p:panelGrid>
-                <h:link value="Não possui cadastro? Cadastre-se aqui!" outcome="cadastro" style="position: absolute; top: 380px; left: 515px" ></h:link>
+                <p:link value="Não possui cadastro? Cadastre-se aqui!" outcome="cadastro" style="position: absolute; top: 380px; left: 515px" ></p:link>
         </h:form>
     </h:body>
 </html>
             
                     
 
+    

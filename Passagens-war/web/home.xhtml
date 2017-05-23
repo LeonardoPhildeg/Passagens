@@ -17,6 +17,7 @@
             </p:menubar>
             <br/>
             <p:dataTable widgetVar="Lista de Passagens" var="passagem" value="#{passagemControle.passagensDisponiveis}">
+                <f:facet name="header"> Lista de Passagens </f:facet>
             
                 <p:column sortBy="#{passagem.cidadeOrigem}" filterBy="#{passagem.cidadeOrigem}">
                     <f:facet name="header" >Origem</f:facet>
@@ -27,9 +28,15 @@
                     <f:facet name="header" >Destino</f:facet>
                     <h:outputText value="#{passagem.cidadeDestino}"></h:outputText>
                 </p:column>
+                
                 <p:column sortBy="#{passagem.data}" filterBy="#{passagem.data}">
-                    <f:facet name="header" >Data/Horário</f:facet>
-                    <h:outputText value="#{passagem.data}"></h:outputText>
+                    <f:facet name="header" >Data</f:facet>
+                    <h:outputText value="#{passagem.data}"> <f:convertDateTime pattern="d-MM-yyyy" /> </h:outputText>
+                </p:column>
+                
+                <p:column sortBy="#{passagem.horario}" filterBy="#{passagem.horario}">
+                    <f:facet name="header" >Horário</f:facet>
+                    <h:outputText value="#{passagem.horario}"></h:outputText>
                 </p:column>
                 
                 <p:column sortBy="#{passagem.valor}" filterBy="#{passagem.valor}">
